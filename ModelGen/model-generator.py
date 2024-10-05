@@ -32,6 +32,7 @@ def build_data(data_size=1, small=-2**64, big=2**64):
                 print("terminated with "+str(i)+" data points")
                 break
 
+#Command Line Arguments are of form: (Size of Dataset) (Smallest Possible Value) (Largest Possible Value)
 def main():
     x = 1 if len(sys.argv) < 2 else int(sys.argv[1])
     small = -2**64 if len(sys.argv) < 3 else int(sys.argv[2])
