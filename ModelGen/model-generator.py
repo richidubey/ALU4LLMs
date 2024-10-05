@@ -2,9 +2,9 @@ import csv
 import random
 import sys
 
-def build_data(data_size=1, small=-2**64, big=2**64):
+def build_data(data_size=1, name="math_data", small=-2**64, big=2**64):
 
-    with open('math_data.csv', 'w', newline='') as file:
+    with open(name+'.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         field = ['input', 'output']
 
@@ -32,12 +32,13 @@ def build_data(data_size=1, small=-2**64, big=2**64):
                 print("terminated with "+str(i)+" data points")
                 break
 
-#Command Line Arguments are of form: (Size of Dataset) (Smallest Possible Value) (Largest Possible Value)
+#Command Line Arguments are of form: (Size of Dataset) (Name of Dataset) (Smallest Possible Value) (Largest Possible Value)
 def main():
     x = 1 if len(sys.argv) < 2 else int(sys.argv[1])
-    small = -2**64 if len(sys.argv) < 3 else int(sys.argv[2])
-    big = 2**64-1 if len(sys.argv) < 4 else int(sys.argv[3])
-    build_data(x, small, big)
+    name = "math_data" if len(sys.argv) < 3 else sys.argv[2]
+    small = -2**64 if len(sys.argv) < 4 else int(sys.argv[3])
+    big = 2**64-1 if len(sys.argv) < 5 else int(sys.argv[4])
+    build_data(x, name, small, big)
 
 
 if __name__ == "__main__":
