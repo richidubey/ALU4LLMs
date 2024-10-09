@@ -5,7 +5,7 @@ import sys
 def build_data(data_size=1, name="math_data", small=-2**64, big=2**64):
 
     with open(name+'.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, quotechar='"', quoting=csv.QUOTE_ALL)
         field = ['input', 'output']
 
         writer.writerow(field)
@@ -26,7 +26,7 @@ def build_data(data_size=1, name="math_data", small=-2**64, big=2**64):
                 b = random.randint(small, big)
                 if b == 0 and op == "division":
                     b = 1
-                row = ["what is " + str(a) + random.choice(op[0]) + str(b), str(op[1](a,b))]
+                row = ['what is ' + str(a) + random.choice(op[0]) + str(b), str(op[1](a,b))]
                 writer.writerow(row)
             except KeyboardInterrupt:
                 print("terminated with "+str(i)+" data points")
