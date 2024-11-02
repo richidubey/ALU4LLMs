@@ -62,9 +62,9 @@ class ArithmeticAttentionModel(nn.Module):
         
         # More robust input projection with multiple layers before normalization
         self.input_projection = nn.Sequential(
-            nn.Linear(6, model_dim * 2),
-            nn.ReLU(), 
-            nn.Linear(model_dim * 2, model_dim),
+            nn.Linear(6, model_dim),
+            nn.LeakyReLU(), 
+            nn.Linear(model_dim, model_dim),
             nn.LayerNorm(model_dim)
         )
         
@@ -74,15 +74,15 @@ class ArithmeticAttentionModel(nn.Module):
             nn.TransformerEncoderLayer(
                 d_model=model_dim,
                 nhead=num_heads,
-                dim_feedforward=model_dim * 4,
+                dim_feedforward=model_dim,
                 dropout=0.0,
-                batch_first=True
+                batch_first=True,
             ) for _ in range(num_layers)
         ])
         
         self.alu = ALU(model_dim=model_dim)
         
-        self.temp_linear = nn.Linear(model_dim, 1)
+        # self.temp_linear = nn.Linear(model_dim, 1)
         
         self.apply(self._init_weights)
         
@@ -93,8 +93,6 @@ class ArithmeticAttentionModel(nn.Module):
                 torch.nn.init.zeros_(module.bias)
                 
     def forward(self, num1, num2, operation):
-        batch_size = num1.shape[0]
-        
         x = torch.cat([num1, num2, operation], dim=1)
         
         x = self.input_projection(x)
