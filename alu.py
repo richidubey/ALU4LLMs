@@ -55,7 +55,6 @@ class ALU(torch.nn.Module):
         return result
 
 
-
 class ArithmeticAttentionModel(nn.Module):
     def __init__(self, model_dim=768, num_heads=8, num_layers=3):
         super(ArithmeticAttentionModel, self).__init__()
@@ -81,7 +80,6 @@ class ArithmeticAttentionModel(nn.Module):
         ])
         
         self.alu = ALU(model_dim=model_dim)
-        
         # self.temp_linear = nn.Linear(model_dim, 1)
         
         self.apply(self._init_weights)
