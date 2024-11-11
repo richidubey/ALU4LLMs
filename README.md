@@ -10,11 +10,12 @@ their mathematical reasoning is often error-prone,
 limiting their utility in tasks that require precise
 numerical computations.
 
+------------------
+
 <img src="image.png" alt="LLM's bad performance on maths" width="600"/>
 
-ChatGPT’s failure to multiply two 5 digit
-numbers
-
+###### ChatGPT’s failure to multiply two 5 digit numbers
+------------------
 
 We are integrating an Arithmetic Logic Unit inside the transformer blocks used by LLMs and finetuning them to allow
 LLMs to compute solutions to arithmetic problems efficiently and correctly.
