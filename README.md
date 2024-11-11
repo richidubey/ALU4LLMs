@@ -17,5 +17,13 @@ numerical computations.
 ###### ChatGPT’s failure to multiply two 5 digit numbers
 ------------------
 
-We are integrating an Arithmetic Logic Unit inside the transformer blocks used by LLMs and finetuning them to allow
-LLMs to compute solutions to arithmetic problems efficiently and correctly.
+We are integrating an Arithmetic Logic Unit within the transformer block and fine-tuning LLMs to enable efficient and accurate computation of solutions to arithmetic problems.
+
+
+
+------------------
+
+<img src="image-1.png" alt="Avg diff" width="400"/>
+
+###### Initial results show less than .07 average difference between the calculated and the actual results
+------------------
