@@ -15,10 +15,15 @@ numerical computations.
 <img src="image.png" alt="LLM's bad performance on maths" width="600"/>
 
 ###### ChatGPT’s failure to multiply two 5 digit numbers
+
+
+
+<img src="image-2.png" alt="o1's bad performance on maths" width="600"/>
+
+###### Performance of o1 model on multiplications
 ------------------
 
 We are integrating an Arithmetic Logic Unit within the transformer block and fine-tuning LLMs to enable efficient and accurate computation of solutions to arithmetic problems.
-
 
 
 ------------------
