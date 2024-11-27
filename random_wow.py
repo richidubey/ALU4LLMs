@@ -1,4 +1,4 @@
-def GPTBlockALU :
+def GPTBlockALU:
 
 class GPTBlockALU(nn.Module):
     def __init__(self, config, layer_idx=None):
